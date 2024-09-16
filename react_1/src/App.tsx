@@ -32,6 +32,8 @@ function Ball() {
 
   const [clicked, setClicked] = useState(0)
 
+  const maxCount = 10
+
   const style: CSSProperties = {
     background: "red",
     width: 50 + "px",
@@ -40,9 +42,13 @@ function Ball() {
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "50%",
-    position: "absolute",
+    /* position: "absolute", */
     userSelect: "none",
     cursor: "pointer"
+  }
+
+  if(clicked >= maxCount){
+    return <div>X</div>
   }
 
   return <>
