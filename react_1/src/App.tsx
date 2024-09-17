@@ -1,5 +1,6 @@
 import { CSSProperties, useState } from "react"
 import styled from "styled-components"
+import { addPointsToDb, supabase } from "./services/supabase_client"
 
 
 const Layout = styled.div`
@@ -76,7 +77,9 @@ function randomInteger(min: number, max: number) {
   return random
 }
 
-export default function App() {
+
+
+function Game() {
 
   // Array(20) luo tyhjän arrayn minkä pituus on 20
   // .fill täyttää annetulla arvolla kaikki 20 indeksiä
@@ -109,4 +112,20 @@ export default function App() {
 }
 
 
+export default function App(){
 
+  const [nickname, setNickname] = useState("")
+
+  
+  
+  return <Layout>
+    <Navigation>
+      <HomeButton>Koti</HomeButton>
+    </Navigation>
+
+    <input value={nickname}onChange={(e)=> setNickname(e.target.value)}></input>
+    <button onClick={() => addPointsToDb(nickname, 0)}>testaa supabase yht</button>
+
+    Nimimerkki: {nickname}
+  </Layout>
+}
