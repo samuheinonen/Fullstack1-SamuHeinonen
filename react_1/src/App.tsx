@@ -1,5 +1,4 @@
 import { CSSProperties, useState } from "react"
-import styled from "styled-components"
 import { addPointsToDb} from "./services/supabase_client"
 import { Layout, Navigation, HomeButton } from "./components/common"
 
